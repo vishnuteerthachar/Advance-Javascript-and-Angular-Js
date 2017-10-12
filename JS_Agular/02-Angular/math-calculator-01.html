@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math Calculator</title>
+		<script src="jquery-3.2.1.js"></script>
+	<script src="angular.js"></script>
+	<script>
+		function Calculator(){
+			this.number1 = 0;
+			this.number2 = 0;
+			this.result = 0;
+		}
+		Calculator.prototype.add = function() {
+					
+					this.result = this.num1 + this.num2 ;
+				};
+				
+				Calculator.prototype.sub = function() {
+					
+					this.result = this.num1 - this.num2 ;
+				};
+				Calculator.prototype.multi = function() {
+					
+					this.result = this.num1 * this.num2 ;
+				};
+				Calculator.prototype.divide = function() {
+					
+					this.result = this.num1 / this.num2 ;
+				};
+				
+				
+	</script>
+</head>
+<body ng-app>
+	<h1>Math Calculator</h1>
+	
+	<div>
+		<input type="number" id="num1" ng-model="calculator.num1">
+		<select ng-model="operator">
+			<option value="add" >Add</option>
+			<option value="subtract">Subtract</option>
+			<option value="multiply">Multiply</option>
+			<option value="divide">Divide</option>
+		</select>
+		<input type="number" id="num1" ng-model="calculator.num2" >
+		<input type="button" value="Calculate" ng-click="calculator[operator]()">
+		<div>[Result]</div>
+	</div>
+</body>
+</html>

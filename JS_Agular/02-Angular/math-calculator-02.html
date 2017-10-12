@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math Calculator</title>
+	<script src="angular.js"></script>
+	<script>
+		function MathCalculator(){
+			this.number1 = 0;
+			this.number2 = 0;
+			this.result = 0;
+		}
+		MathCalculator.prototype.add = function() {
+			this.result = this.number1 + this.number2
+		};
+		MathCalculator.prototype.subtract = function() {
+			this.result = this.number1 - this.number2
+		};
+		MathCalculator.prototype.multiply = function() {
+			this.result = this.number1 * this.number2
+		};
+		MathCalculator.prototype.divide = function() {
+			this.result = this.number1 / this.number2
+		};
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.run(function($rootScope){
+			$rootScope.appName = 'Math Calculator';
+			//$rootScope.calculator = new MathCalculator();
+		});
+		myAppModule.controller('mathController1', function($scope){
+			$scope.calculator = new MathCalculator();
+		});
+		/*myAppModule.controller('mathController2', function($scope){
+			$scope.calculator = new MathCalculator();
+		});*/
+	</script>
+</head>
+<body ng-app="myApp">
+	<h1 ng-bind="appName"></h1>
+	<div ng-controller='mathController1'>
+		<hr>
+		<input type="number" ng-model="calculator.number1">
+		<input type="number" ng-model="calculator.number2">
+		<br>
+		<input type="button" value="Add" ng-click="calculator.add()">
+		<input type="button" value="Subtract" ng-click="calculator.subtract()">
+		<input type="button" value="Multiply" ng-click="calculator.multiply()">
+		<input type="button" value="Divide" ng-click="calculator.divide()">
+		<div ng-bind="calculator.result"></div>
+	</div>
+	<hr>
+	<div ng-controller="mathController1">
+		<input type="number" ng-model="calculator.number1">
+		<select ng-model="operator">
+			<option value="add">Add</option>
+			<option value="subtract">Subtract</option>
+			<option value="multiply">Multiply</option>
+			<option value="divide">Divide</option>
+		</select>
+		<input type="number" ng-model="calculator.number2">
+		<input type="button" value="Calculate" ng-click="calculator[operator]()">
+		<div ng-bind="calculator.result | currency">[Result]</div>
+	</div>
+</body>
+</html>

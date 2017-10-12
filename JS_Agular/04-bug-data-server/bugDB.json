@@ -1,0 +1,32 @@
+{
+  "bugs": [
+    {
+      "id": 4,
+      "name": "Data integrity checks failed",
+      "isClosed": false,
+      "createdAt": "Sat Sep 16 2017 11:25:47 GMT+0530 (IST)"
+    },
+    {
+      "id": 7,
+      "name": "Test 4",
+      "isClosed": false,
+      "createdAt": "2017-10-11T10:28:09.697Z"
+    },
+    {
+      "id": 9,
+      "name": "Test 1",
+      "isClosed": false,
+      "createdAt": "2017-10-11T10:29:27.340Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "P102",
+      "name": "Bug Tracker"
+    },
+    {
+      "id": "P101",
+      "name": "Payroll Management"
+    }
+  ]
+}
